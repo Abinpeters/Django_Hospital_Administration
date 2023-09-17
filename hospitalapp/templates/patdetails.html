@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Details</title>
+    <link rel="stylesheet" href="{% static 'c.css' %}">
+</head>
+<body>
+    <h1>Enter Patient Information</h1>
+    <style>
+        /* Define a CSS class for the custom width */
+        .custom-width-select {
+            width: 200px; /* You can adjust the width as needed */
+        }
+    </style>
+    <div class="container">
+        <form method ="post" action="save1">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" required><br>
+            <label for="disease">Disease:</label>
+            <input type="text" id="disease" name="disease" required><br>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required><br>
+            <label for="number">Number:</label>
+            <input type="text" id="number" name="number" required><br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required><br>
+            <label for="choose">Choose Doctor</label>
+                <select name="doctor" id="choose" class="custom-width-select">
+                    {% for doctor in alldoctors %}
+                        <option value="{{ doctor.name }}">{{ doctor.name }} - {{ doctor.specialized }}</option>
+                    {% endfor %}
+                </select>
+            
+            
+            <button type="submit" class="submit_btn">Submit</button>
+            
+           
+            
+            
+        </form>
+    
+         <form method ="post" action="{% url 'admin' %}">
+            {% csrf_token %}
+            <button type="submit" class="submit_btn">Admin Page</button>
+       
+        </form>
+    </div>
+</body>
+</html>

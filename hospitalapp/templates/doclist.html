@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All students</title>
+    <link rel="stylesheet" href="{% static 'c.css' %}">
+</head>
+<body>
+    <h1>
+        Registered Doctors
+    </h1>
+    <table border="1" class="styled-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Specialized</th>
+                <th>Address</th>
+                <th>Number</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+    
+    <tbody>
+        {% for doctor in alldoctors %}
+        <tr>
+            <td>{{ doctor.name }}</td>
+            <td>{{ doctor.specialized }}</td>
+            <td>{{ doctor.address }}</td>
+            <td>{{ doctor.number }}</td>
+            <td>{{ doctor.email }}</td>
+            <td>{{ doctor.username }}</td>
+            <td>{{ doctor.password }}</td>
+            <td>
+                <form method ="post" action="{% url 'deletedocview' doctor.pk %}">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        
+     {% endfor %}
+    </tbody>
+    </table>
+    <form method ="post" action="{% url 'admin' %}">
+        {% csrf_token %}
+        <button type="submit" class="submit_btn">Admin Page</button>
+       
+    </form>
+</body>

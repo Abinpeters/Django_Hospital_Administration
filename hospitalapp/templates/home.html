@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'ad2.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+    
+        <form method ="post" action="{% url 'check' %}">
+            {% csrf_token %}
+         <div class="input-group">
+            <label for="username">User Name:</label>
+            <input type="text" id="username" name="username" required><br>
+        </div>
+        <div class="input-group">
+            <label for="password">Password:</label>
+            <input type="text" id="password" name="password" required><br>
+        </div>    
+            
+            
+            <button type="submit">submit</button>
+        </form>
+    </div>
+        
+</body>
+</html>

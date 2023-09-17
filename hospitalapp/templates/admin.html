@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="{% static 'c2.css' %}">
+</head>
+<body>
+    <div><h1>Admin Page</h1></div>
+    
+    <div class="container">
+        
+        <form method ="post" action="{% url 'docdetails' %}">
+            {% csrf_token %}
+            <button type="submit" class="submit_btn">Register Doctor</button>
+
+        </form>
+        <form method ="post" action="{% url 'patdetails' %}">
+                {% csrf_token %}
+                <button type="submit" class="submit_btn">Register Patient</button>
+               
+        </form>
+        <form method ="post" action="{% url 'doclist' %}">
+            {% csrf_token %}
+            <button type="submit" class="submit_btn">List Doctor</button>
+           
+        </form>
+        <form method ="post" action="{% url 'patlist' %}">
+            {% csrf_token %}
+            <button type="submit" class="submit_btn">List Patient</button>
+           
+        </form>
+        <form method="post" action="{% url 'home' %}">
+            {% csrf_token %}
+                <button type="submit">login</button>
+        </form>
+            
+        
+        
+        
+    </div>
+</body>
+</html>

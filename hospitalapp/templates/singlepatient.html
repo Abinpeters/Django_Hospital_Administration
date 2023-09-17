@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'single.css' %}">
+</head>
+<body>
+    <h1>Registered Patient</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Disease</th>
+                <th>Address</th>
+                <th>Phonenumber</th>
+                <th>Email</th>
+                <th>Feedback</th>
+                <th>Update</th>
+                <th>Delete</th>       
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <form method="post" action="{% url 'updatesinglepatient' patient.pk %}">
+                    {% csrf_token %}
+                    <td><input type="text" value="{{ patient.name }}" name="name"></td>
+                    <td><input type="text" value="{{ patient.age }}" name="age"></td>
+                    <td><input type="text" value="{{ patient.disease }}" name="disease"></td>
+                    <td><input type="text" value="{{ patient.address }}" name="address"></td>
+                    <td><input type="number" value="{{ patient.number }}" name="number"></td>
+                    <td><input type="text" value="{{ patient.email }}" name="email"></td>
+                    <td><input type="text" value="{{ patient.feedback }}" name="feedback"></td>
+                    <td><button type="submit" class="my-button">Update Patient</button></td>
+                    <td><a href="{% url 'deletesinglepatient' patient.pk %}">Delete</a></td>
+                </form>
+            </tr>
+            
+                <form method="post" action="{% url 'opatients' patient.pk %}">
+                    {% csrf_token %}
+                    
+                    <button type="submit" class="submit_btn">Back</button>
+                </form>
+            
+        </tbody>
+    </table>
+    
+</body>
+</html>

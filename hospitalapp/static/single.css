@@ -1,0 +1,60 @@
+   /* Styling for labels */
+   .positioned-button {
+    position: absolute; /* Set the button's position to absolute */
+    top: 650px; /* Distance from the top edge of the nearest positioned ancestor */
+    left: 550px; /* Distance from the left edge of the nearest positioned ancestor */
+    /* You can also use right or bottom to specify position from the right or bottom edges */
+    width: 75px; /* Set the desired width */
+    height: 37px; /* Set the desired height */
+    font-size: 11px
+  }
+  
+
+
+
+
+
+
+/* Styling for tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Styling for buttons */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+.container {
+    max-width: 600px;
+    max-height: 1900px;
+    margin: 0 auto ;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+h1 {
+    color: #2b18dc; /* Change to your desired color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ 
+}
